@@ -10,10 +10,10 @@ export const Logo = (props: React.SVGProps<SVGSVGElement>) => (
       {...props}
     >
       <path d="M12 2a10 10 0 1 0 10 10" />
-      <path d="M12 2a10 10 0 0 1 10 10" />
-      <path d="M12 2V22" />
-      <path d="M2 12H22" />
-      <path d="m5 5 14 14" />
-      <path d="m5 19 14-14" />
+      <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8z" />
+      <path d="M2 12h2" />
+      <path d="M20 12h2" />
+      <path d="M12 2v2" />
+      <path d="M12 20v2" />
     </svg>
   );

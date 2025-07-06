@@ -23,7 +23,7 @@ import {
 import { Button } from '../ui/button';
 
 export function DashboardSidebar() {
-  const { toggleSidebar, state } = useSidebar();
+  const { toggleSidebar } = useSidebar();
   return (
     <Sidebar className="border-r border-border/20">
       <SidebarHeader className="flex items-center justify-between">
@@ -46,19 +46,19 @@ export function DashboardSidebar() {
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={{children:"Reports"}}>
+            <SidebarMenuButton tooltip={{children:"View and generate financial reports"}}>
               <FileText />
               Reports
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={{children:"Patients"}}>
+            <SidebarMenuButton tooltip={{children:"Manage patient records and demographics"}}>
               <Users />
               Patients
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={{children:"Alerts"}}>
+            <SidebarMenuButton tooltip={{children:"Review system alerts and notifications"}}>
               <Bell />
               Alerts
             </SidebarMenuButton>
@@ -68,13 +68,13 @@ export function DashboardSidebar() {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={{children:"Settings"}}>
+            <SidebarMenuButton tooltip={{children:"Configure dashboard and agent settings"}}>
               <Settings />
               Settings
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip={{children:"Help"}}>
+            <SidebarMenuButton tooltip={{children:"Access documentation and support channels"}}>
               <HelpCircle />
               Help & Support
             </SidebarMenuButton>

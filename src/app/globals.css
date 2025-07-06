@@ -4,77 +4,77 @@
 
 @layer base {
   :root {
-    --background: 218 29% 7.5%;
-    --foreground: 228 25% 97.1%;
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
 
-    --card: 218 33.3% 15.3%;
-    --card-foreground: 228 25% 97.1%;
+    --card: 224 71.4% 8%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 218 29% 7.5%;
-    --popover-foreground: 228 25% 97.1%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 187.1 100% 50%;
-    --primary-foreground: 218 29% 7.5%;
+    --primary: 204 100% 50%;
+    --primary-foreground: 210 20% 5%;
 
-    --secondary: 217.5 33.3% 15.3%;
-    --secondary-foreground: 228 25% 97.1%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 217.5 33.3% 15.3%;
-    --muted-foreground: 228 25% 70%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 210 20% 60%;
 
-    --accent: 264.5 100% 67.3%;
-    --accent-foreground: 228 25% 97.1%;
+    --accent: 260 100% 70%;
+    --accent-foreground: 210 20% 98%;
 
-    --destructive: 348.3 100% 61%;
-    --destructive-foreground: 228 25% 97.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 231.6 32.7% 21%;
-    --input: 231.6 32.7% 21%;
-    --ring: 187.1 100% 50%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 204 100% 50%;
 
     --radius: 0.5rem;
 
-    --chart-1: 187 100% 50%; /* Neon Blue */
-    --chart-2: 264 100% 67%; /* Neon Purple */
-    --chart-3: 160 100% 50%; /* Neon Green */
-    --chart-4: 348 100% 61%; /* Neon Red */
-    --chart-5: 50 100% 50%; /* Neon Yellow */
+    --chart-1: 204 100% 50%; /* Electric Blue */
+    --chart-2: 260 100% 70%; /* Violet */
+    --chart-3: 170 80% 50%; /* Teal */
+    --chart-4: 0 84.2% 60.2%; /* Red */
+    --chart-5: 60 100% 50%; /* Yellow */
   }
 
   .dark {
-    --background: 218 29% 7.5%;
-    --foreground: 228 25% 97.1%;
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
 
-    --card: 218 33.3% 15.3%;
-    --card-foreground: 228 25% 97.1%;
+    --card: 224 71.4% 8%;
+    --card-foreground: 210 20% 98%;
 
-    --popover: 218 29% 7.5%;
-    --popover-foreground: 228 25% 97.1%;
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
 
-    --primary: 187.1 100% 50%;
-    --primary-foreground: 218 29% 7.5%;
+    --primary: 204 100% 50%;
+    --primary-foreground: 210 20% 5%;
 
-    --secondary: 217.5 33.3% 15.3%;
-    --secondary-foreground: 228 25% 97.1%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 20% 98%;
 
-    --muted: 217.5 33.3% 15.3%;
-    --muted-foreground: 228 25% 70%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 210 20% 60%;
 
-    --accent: 264.5 100% 67.3%;
-    --accent-foreground: 228 25% 97.1%;
+    --accent: 260 100% 70%;
+    --accent-foreground: 210 20% 98%;
 
-    --destructive: 348.3 100% 61%;
-    --destructive-foreground: 228 25% 97.1%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
 
-    --border: 231.6 32.7% 21%;
-    --input: 231.6 32.7% 21%;
-    --ring: 187.1 100% 50%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 204 100% 50%;
 
-    --chart-1: 187 100% 50%;
-    --chart-2: 264 100% 67%;
-    --chart-3: 160 100% 50%;
-    --chart-4: 348 100% 61%;
-    --chart-5: 50 100% 50%;
+    --chart-1: 204 100% 50%;
+    --chart-2: 260 100% 70%;
+    --chart-3: 170 80% 50%;
+    --chart-4: 0 84.2% 60.2%;
+    --chart-5: 60 100% 50%;
   }
 }
 
@@ -86,18 +86,41 @@
     @apply bg-background text-foreground;
     background-color: hsl(var(--background));
     background-image: 
-      radial-gradient(circle at 25px 25px, hsl(var(--primary) / 0.05) 2%, transparent 0%),
-      radial-gradient(circle at 75px 75px, hsl(var(--accent) / 0.05) 2%, transparent 0%);
-    background-size: 100px 100px;
+      radial-gradient(circle at 1px 1px, hsl(var(--primary) / 0.1) 1px, transparent 0),
+      radial-gradient(circle at 15px 15px, hsl(var(--accent) / 0.08) 1px, transparent 0);
+    background-size: 30px 30px;
+    animation: bg-pan 30s linear infinite;
+  }
+  
+  body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+      0deg,
+      hsla(var(--primary) / 0.05),
+      hsla(var(--primary) / 0.05) 1px,
+      transparent 1px,
+      transparent B_#s##A#S_E#6#4_,##aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2ZpcmViYXNlLXN0dWRpby1wcm9kLXVzZXItYXNzZXRzL3Vzcl8xL3Byb2plY3RzL2ZpcmViYXNlLXN0dWRpby1kZXYvMDQyZjcwYjgtNTYxNC00MmQ3LWI0NTktYzYxNzI5MmNlOWZmLmJpbg==## 4px
+    );
+    pointer-events: none;
+    z-index: 1000;
   }
 }
 
 @layer utilities {
   .glassmorphic {
-    @apply bg-card/50 backdrop-blur-lg border border-border/20;
+    @apply bg-card/60 backdrop-blur-xl border border-border/30;
   }
   
   .text-glow {
     text-shadow: 0 0 8px hsl(var(--primary) / 0.75);
+  }
+
+  .text-flicker {
+    animation: flicker 3s linear infinite;
   }
 }
