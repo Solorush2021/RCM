@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
+import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
+import { DashboardSidebar } from '@/components/dashboard/sidebar';
 
 export const metadata: Metadata = {
   title: 'RCM Genie',
@@ -14,12 +16,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased">{children}<Toaster /></body>
+      <body className="font-body antialiased">
+        <SidebarProvider>
+          <DashboardSidebar />
+          <SidebarInset className="overflow-auto">
+            {children}
+          </SidebarInset>
+        </SidebarProvider>
+        <Toaster />
+      </body>
     </html>
   );
 }

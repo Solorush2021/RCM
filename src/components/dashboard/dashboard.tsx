@@ -1,6 +1,4 @@
 'use client';
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
-import { DashboardSidebar } from './sidebar';
 import { KpiCard } from './kpi-card';
 import { MainChart } from './main-chart';
 import { AgentStatusList } from './agent-status-list';
@@ -54,51 +52,46 @@ export function Dashboard({ agents, anomalies, kpiData, error }: DashboardProps)
     const eligibilitySpeedChange = past.eligibilitySpeed !== 0 ? ((current.eligibilitySpeed - past.eligibilitySpeed) / past.eligibilitySpeed) * 100 : 0;
 
     return (
-        <SidebarProvider>
-            <DashboardSidebar />
-            <SidebarInset className="overflow-auto">
-                <div className={`p-4 sm:p-6 lg:p-8 space-y-6 transition-opacity duration-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
-                    <header className="animate-slide-in-up" style={{ animationDelay: '100ms' }}>
-                        <h1 className="text-3xl font-bold text-glow">RCM Command Center</h1>
-                        <p className="text-muted-foreground text-flicker">Live analysis of revenue cycle operations</p>
-                    </header>
-                    
-                    <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
-                        <div className="xl:col-span-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-                            <div className="animate-slide-in-up" style={{ animationDelay: '200ms' }}>
-                                <KpiCard title="A/R Days" value={current.arDays} change={arDaysChange} sentiment={arDaysChange < 0 ? 'good' : 'bad'} icon={<DollarSign />} data={kpiChartData} color="hsl(var(--chart-1))" suffix=" days" />
-                            </div>
-                            <div className="animate-slide-in-up" style={{ animationDelay: '300ms' }}>
-                                <KpiCard title="Denial Rate" value={current.denialRate} change={denialRateChange} sentiment={denialRateChange < 0 ? 'good' : 'bad'} icon={<FileCheck />} data={kpiChartData} color="hsl(var(--chart-2))" suffix="%" />
-                            </div>
-                            <div className="animate-slide-in-up" style={{ animationDelay: '400ms' }}>
-                                <KpiCard title="Cost Reduction" value={current.costReduction} change={costReductionChange} sentiment={costReductionChange > 0 ? 'good' : 'bad'} icon={<TrendingUp />} data={kpiChartData} color="hsl(var(--chart-3))" suffix="%" />
-                            </div>
-                            <div className="animate-slide-in-up" style={{ animationDelay: '500ms' }}>
-                                <KpiCard title="Eligibility Speed" value={current.eligibilitySpeed} change={eligibilitySpeedChange < 0 ? 'good' : 'bad'} icon={<Zap />} data={kpiChartData} color="hsl(var(--chart-4))" suffix=" hrs" />
-                            </div>
-                        </div>
-
-                        <div className="xl:col-span-3 animate-slide-in-up" style={{ animationDelay: '600ms' }}>
-                            <MainChart />
-                        </div>
-                        <div className="xl:col-span-2 animate-slide-in-up" style={{ animationDelay: '700ms' }}>
-                            <AgentStatusList agents={agents} />
-                        </div>
-
-                        <div className="xl:col-span-2 animate-slide-in-up" style={{ animationDelay: '800ms' }}>
-                           <GlobalOperationsMap />
-                        </div>
-                        <div className="xl:col-span-3 animate-slide-in-up" style={{ animationDelay: '900ms' }}>
-                            <AnomalyAlerts anomalies={anomalies} />
-                        </div>
-
-                        <div className="xl:col-span-5 animate-slide-in-up" style={{ animationDelay: '1000ms' }}>
-                           <ClaimStatusFeed />
-                        </div>
+        <div className={`p-4 sm:p-6 lg:p-8 space-y-6 transition-opacity duration-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
+            <header className="animate-slide-in-up" style={{ animationDelay: '100ms' }}>
+                <h1 className="text-3xl font-bold text-glow">RCM Command Center</h1>
+                <p className="text-muted-foreground text-flicker">Live analysis of revenue cycle operations</p>
+            </header>
+            
+            <div className="grid grid-cols-1 xl:grid-cols-5 gap-6">
+                <div className="xl:col-span-5 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+                    <div className="animate-slide-in-up" style={{ animationDelay: '200ms' }}>
+                        <KpiCard title="A/R Days" value={current.arDays} change={arDaysChange} sentiment={arDaysChange < 0 ? 'good' : 'bad'} icon={<DollarSign />} data={kpiChartData} color="hsl(var(--chart-1))" suffix=" days" />
+                    </div>
+                    <div className="animate-slide-in-up" style={{ animationDelay: '300ms' }}>
+                        <KpiCard title="Denial Rate" value={current.denialRate} change={denialRateChange} sentiment={denialRateChange < 0 ? 'good' : 'bad'} icon={<FileCheck />} data={kpiChartData} color="hsl(var(--chart-2))" suffix="%" />
+                    </div>
+                    <div className="animate-slide-in-up" style={{ animationDelay: '400ms' }}>
+                        <KpiCard title="Cost Reduction" value={current.costReduction} change={costReductionChange > 0 ? 'good' : 'bad'} icon={<TrendingUp />} data={kpiChartData} color="hsl(var(--chart-3))" suffix="%" />
+                    </div>
+                    <div className="animate-slide-in-up" style={{ animationDelay: '500ms' }}>
+                        <KpiCard title="Eligibility Speed" value={current.eligibilitySpeed} change={eligibilitySpeedChange < 0 ? 'good' : 'bad'} icon={<Zap />} data={kpiChartData} color="hsl(var(--chart-4))" suffix=" hrs" />
                     </div>
                 </div>
-            </SidebarInset>
-        </SidebarProvider>
+
+                <div className="xl:col-span-3 animate-slide-in-up" style={{ animationDelay: '600ms' }}>
+                    <MainChart />
+                </div>
+                <div className="xl:col-span-2 animate-slide-in-up" style={{ animationDelay: '700ms' }}>
+                    <AgentStatusList agents={agents} />
+                </div>
+
+                <div className="xl:col-span-2 animate-slide-in-up" style={{ animationDelay: '800ms' }}>
+                   <GlobalOperationsMap />
+                </div>
+                <div className="xl:col-span-3 animate-slide-in-up" style={{ animationDelay: '900ms' }}>
+                    <AnomalyAlerts anomalies={anomalies} />
+                </div>
+
+                <div className="xl:col-span-5 animate-slide-in-up" style={{ animationDelay: '1000ms' }}>
+                   <ClaimStatusFeed />
+                </div>
+            </div>
+        </div>
     )
 }

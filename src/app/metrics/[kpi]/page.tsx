@@ -1,7 +1,5 @@
-import { DashboardSidebar } from '@/components/dashboard/sidebar';
 import { MetricDetailView } from '@/components/metrics/metric-detail-view';
 import { kpiDetails } from '@/lib/mock-data';
-import { SidebarProvider, SidebarInset } from '@/components/ui/sidebar';
 import { notFound } from 'next/navigation';
 
 type Props = {
@@ -17,11 +15,6 @@ export default function MetricDetailPage({ params }: Props) {
   }
   
   return (
-    <SidebarProvider>
-      <DashboardSidebar />
-      <SidebarInset>
-        <MetricDetailView kpi={kpiData} />
-      </SidebarInset>
-    </SidebarProvider>
+    <MetricDetailView kpi={kpiData} />
   );
 }
