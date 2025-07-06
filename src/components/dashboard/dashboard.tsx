@@ -21,13 +21,13 @@ type DashboardProps = {
     error: string | null;
 }
 
-const kpiChartData = Array.from({ length: 10 }, (_, i) => ({ value: Math.random() * 50 + 20 }));
-
 export function Dashboard({ agents, anomalies, kpiData, error }: DashboardProps) {
     const [isMounted, setIsMounted] = useState(false);
+    const [kpiChartData, setKpiChartData] = useState<{ value: number }[]>([]);
 
     useEffect(() => {
         setIsMounted(true);
+        setKpiChartData(Array.from({ length: 10 }, () => ({ value: Math.random() * 50 + 20 })));
     }, []);
 
     if (error) {
@@ -50,9 +50,9 @@ export function Dashboard({ agents, anomalies, kpiData, error }: DashboardProps)
     const eligibilitySpeedChange = past.eligibilitySpeed !== 0 ? ((current.eligibilitySpeed - past.eligibilitySpeed) / past.eligibilitySpeed) * 100 : 0;
 
     return (
-        <div className="flex min-h-screen w-full">
+        <SidebarProvider>
             <DashboardSidebar />
-            <main className="flex-1 overflow-auto">
+            <SidebarInset className="overflow-auto">
                 <div className={`p-4 sm:p-6 lg:p-8 space-y-6 transition-opacity duration-500 ${isMounted ? 'opacity-100' : 'opacity-0'}`}>
                     <header className="animate-slide-in-up" style={{ animationDelay: '100ms' }}>
                         <h1 className="text-3xl font-bold text-glow">Dashboard</h1>
@@ -88,7 +88,7 @@ export function Dashboard({ agents, anomalies, kpiData, error }: DashboardProps)
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+            </SidebarInset>
+        </SidebarProvider>
     )
 }

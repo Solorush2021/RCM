@@ -26,7 +26,7 @@ const chartConfig = {
 
 export function MainChart() {
   return (
-    <Card className="glassmorphic col-span-1 lg:col-span-2 h-[450px] lg:h-auto flex flex-col">
+    <Card className="glassmorphic h-[450px] lg:h-auto flex flex-col">
       <CardHeader>
         <CardTitle>Revenue vs Denials Overview</CardTitle>
         <CardDescription>Last 6 Months</CardDescription>
