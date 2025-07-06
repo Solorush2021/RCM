@@ -25,12 +25,30 @@ export default async function DashboardPage() {
   let error = null;
 
   try {
-    // We run promises in sequence to avoid overloading any backend services if they share resources.
-    agents = await monitorAiAgents();
-    anomalies = await analyzeAnomalies({ 
-      metricsData: JSON.stringify(currentMetricsData),
-      pastMetricsData: JSON.stringify(pastMetricsData),
-    });
+    // Running data fetches in parallel for much faster load times.
+    const [agentsResult, anomaliesResult] = await Promise.allSettled([
+      monitorAiAgents(),
+      analyzeAnomalies({ 
+        metricsData: JSON.stringify(currentMetricsData),
+        pastMetricsData: JSON.stringify(pastMetricsData),
+      })
+    ]);
+
+    if (agentsResult.status === 'fulfilled') {
+      agents = agentsResult.value;
+    } else {
+      console.error("Failed to load AI agent statuses:", agentsResult.reason);
+      error = "Failed to load AI agent statuses.";
+    }
+
+    if (anomaliesResult.status === 'fulfilled') {
+      anomalies = anomaliesResult.value;
+    } else {
+      console.error("Failed to analyze anomalies:", anomaliesResult.reason);
+      const anomaliesError = "Failed to analyze anomalies.";
+      error = error ? `${error} ${anomaliesError}` : anomaliesError;
+    }
+    
   } catch (e) {
     console.error(e);
     error = "Failed to load dashboard data. The AI services may be offline."
