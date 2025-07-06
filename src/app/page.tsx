@@ -11,6 +11,7 @@ const pastMetricsData = {
   eligibilitySpeed: 48, // hours
 };
 
+// More dramatic current data for effect
 const currentMetricsData = {
   arDays: 38,
   denialRate: 8,

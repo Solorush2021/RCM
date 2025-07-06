@@ -10,7 +10,8 @@ import { AlertCircle, DollarSign, FileCheck, Zap, TrendingUp } from 'lucide-reac
 import type { MonitorAiAgentsOutput } from '@/ai/flows/monitor-ai-agents';
 import type { AnalyzeAnomaliesOutput } from '@/ai/flows/analyze-anomalies';
 import { useEffect, useState } from 'react';
-import { SystemStatus } from './system-status';
+import { GlobalOperationsMap } from './global-operations-map';
+import { ClaimStatusFeed } from './claim-status-feed';
 
 type DashboardProps = {
     agents: MonitorAiAgentsOutput['agents'];
@@ -74,7 +75,7 @@ export function Dashboard({ agents, anomalies, kpiData, error }: DashboardProps)
                                 <KpiCard title="Cost Reduction" value={current.costReduction} change={costReductionChange} sentiment={costReductionChange > 0 ? 'good' : 'bad'} icon={<TrendingUp />} data={kpiChartData} color="hsl(var(--chart-3))" suffix="%" />
                             </div>
                             <div className="animate-slide-in-up" style={{ animationDelay: '500ms' }}>
-                                <KpiCard title="Eligibility Speed" value={current.eligibilitySpeed} change={eligibilitySpeedChange} sentiment={eligibilitySpeedChange < 0 ? 'good' : 'bad'} icon={<Zap />} data={kpiChartData} color="hsl(var(--chart-4))" suffix=" hrs" />
+                                <KpiCard title="Eligibility Speed" value={current.eligibilitySpeed} change={eligibilitySpeedChange < 0 ? 'good' : 'bad'} icon={<Zap />} data={kpiChartData} color="hsl(var(--chart-4))" suffix=" hrs" />
                             </div>
                         </div>
 
@@ -86,10 +87,14 @@ export function Dashboard({ agents, anomalies, kpiData, error }: DashboardProps)
                         </div>
 
                         <div className="xl:col-span-2 animate-slide-in-up" style={{ animationDelay: '800ms' }}>
-                            <SystemStatus />
+                           <GlobalOperationsMap />
                         </div>
                         <div className="xl:col-span-3 animate-slide-in-up" style={{ animationDelay: '900ms' }}>
                             <AnomalyAlerts anomalies={anomalies} />
+                        </div>
+
+                        <div className="xl:col-span-5 animate-slide-in-up" style={{ animationDelay: '1000ms' }}>
+                           <ClaimStatusFeed />
                         </div>
                     </div>
                 </div>

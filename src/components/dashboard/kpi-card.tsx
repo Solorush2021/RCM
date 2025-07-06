@@ -48,7 +48,7 @@ export function KpiCard({ title, value, change, sentiment, prefix, suffix, icon,
                 </div>
                 <p className={cn("text-xs flex items-center gap-1", getChangeColor())}>
                     {getChangeIcon()}
-                    {Math.abs(parseFloat(change.toFixed(1)))}% from last period
+                    {Math.abs(change).toFixed(1)}% from last period
                 </p>
             </div>
             <div className="w-24 h-12">

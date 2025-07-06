@@ -99,6 +99,14 @@ export default {
         'flicker': {
           '0%, 100%': { opacity: '1' },
           '50.2%': { opacity: '0.7' },
+        },
+        'marquee': {
+          'from': { transform: 'translateX(0)' },
+          'to': { transform: 'translateX(-50%)' },
+        },
+        'pulse-dot': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '0.8' },
+          '50%': { transform: 'scale(2.5)', opacity: '0' },
         }
       },
       animation: {
@@ -108,6 +116,8 @@ export default {
         'float': 'float 3s ease-in-out infinite',
         'bg-pan': 'bg-pan 30s linear infinite',
         'flicker': 'flicker 3s linear infinite',
+        'marquee': 'marquee 60s linear infinite',
+        'pulse-dot': 'pulse-dot 2.5s cubic-bezier(0.45, 0, 0.55, 1) infinite',
       },
     },
   },
