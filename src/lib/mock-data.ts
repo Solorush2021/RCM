@@ -1,4 +1,3 @@
-import { DollarSign, FileCheck, TrendingUp, Zap } from 'lucide-react';
 import { format, subDays, subMonths } from 'date-fns';
 
 // Helper function to generate random chart data
@@ -21,7 +20,7 @@ export type KpiDetail = {
   title: string;
   slug: string;
   description: string;
-  icon: React.ElementType;
+  icon: string;
   unit: string;
   chartType: 'bar' | 'line';
   mainChartData: { name: string; value: number }[];
@@ -33,7 +32,7 @@ export const kpiDetails: { [key: string]: KpiDetail } = {
       title: 'A/R Days',
       slug: 'a-r-days',
       description: 'Average number of days it takes for a provider to receive payment for services.',
-      icon: DollarSign,
+      icon: 'DollarSign',
       unit: ' days',
       chartType: 'line',
       mainChartData: generateChartData(12, 35, 50),
@@ -50,7 +49,7 @@ export const kpiDetails: { [key: string]: KpiDetail } = {
         title: 'Denial Rate',
         slug: 'denial-rate',
         description: 'The percentage of claims denied by payers out of the total claims submitted.',
-        icon: FileCheck,
+        icon: 'FileCheck',
         unit: '%',
         chartType: 'bar',
         mainChartData: generateChartData(12, 5, 15),
@@ -67,7 +66,7 @@ export const kpiDetails: { [key: string]: KpiDetail } = {
         title: 'Cost Reduction',
         slug: 'cost-reduction',
         description: 'Measures the effectiveness of cost-saving initiatives within the revenue cycle.',
-        icon: TrendingUp,
+        icon: 'TrendingUp',
         unit: '%',
         chartType: 'line',
         mainChartData: generateChartData(12, 5, 15),
@@ -84,7 +83,7 @@ export const kpiDetails: { [key: string]: KpiDetail } = {
         title: 'Eligibility Speed',
         slug: 'eligibility-speed',
         description: 'The average time taken to verify a patient\'s insurance eligibility.',
-        icon: Zap,
+        icon: 'Zap',
         unit: ' hrs',
         chartType: 'bar',
         mainChartData: generateChartData(12, 4, 12),

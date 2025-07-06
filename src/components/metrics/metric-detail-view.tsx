@@ -1,7 +1,7 @@
 'use client';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer, Tooltip as RechartsTooltip, CartesianGrid, LineChart, Line, AreaChart, Area } from 'recharts';
-import { TrendingUp, TrendingDown, Hourglass, Percent, Target } from 'lucide-react';
+import { TrendingUp, TrendingDown, Hourglass, Percent, Target, DollarSign, FileCheck, Zap } from 'lucide-react';
 import type { KpiDetail } from '@/lib/mock-data';
 
 type MetricDetailViewProps = {
@@ -14,16 +14,20 @@ const iconMap: { [key: string]: React.ElementType } = {
   'Hourglass': Hourglass,
   'Percent': Percent,
   'Target': Target,
+  'DollarSign': DollarSign,
+  'FileCheck': FileCheck,
+  'Zap': Zap,
 };
 
 export function MetricDetailView({ kpi }: MetricDetailViewProps) {
   const MainChartComponent = kpi.chartType === 'bar' ? BarChart : LineChart;
+  const KpiIcon = iconMap[kpi.icon];
   
   return (
     <div className="p-4 sm:p-6 lg:p-8 space-y-6">
       <header>
         <h1 className="text-3xl font-bold text-glow flex items-center gap-3">
-          <kpi.icon className="w-8 h-8 text-primary" />
+          {KpiIcon && <KpiIcon className="w-8 h-8 text-primary" />}
           {kpi.title}
         </h1>
         <p className="text-muted-foreground">{kpi.description}</p>
