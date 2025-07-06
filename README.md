@@ -88,7 +88,7 @@ It uses AI agents to automate eligibility verification, prior authorizations, an
 ## 🚀 Getting Started
 
 1. **Clone the repo:**  
-   `git clone https://github.com/your-username/rcm-genie.git`
+   `git clone github.com/Solorush2021/RCM`
 2. **Install dependencies:**  
    `npm install`
 3. **Run locally:**  
