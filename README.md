@@ -1,6 +1,5 @@
-
 # 🚀 RCM Genie: AI-Powered Revenue Cycle Management Dashboard
-//commment
+
 Transform healthcare operations with a **futuristic, AI-driven dashboard** that automates and optimizes Revenue Cycle Management (RCM) workflows.  
 Glowing neon UI, real-time insights, and measurable impact—all in one sleek platform.
 
